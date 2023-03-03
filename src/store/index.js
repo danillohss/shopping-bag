@@ -29,7 +29,9 @@ export default createStore({
       commit('addToBag', product);
     },
     removeFromBag({ commit }, productId) {
-      commit('removeFromBag', productId);
+      if (confirm('Deseja remover o item do carrinho?')) {
+        commit('removeFromBag', productId);
+      }
     }
   },
   modules: {
